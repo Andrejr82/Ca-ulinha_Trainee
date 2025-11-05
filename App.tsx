@@ -169,7 +169,8 @@ const App: React.FC = () => {
     setInitialFormValues(null);
 
     try {
-      const {objectUrl, blob, video} = await generateVideo(params);
+      const apiKey = (await window.aistudio?.getApiKey()) || '';
+      const {objectUrl, blob, video} = await generateVideo(params, apiKey);
       setVideoUrl(objectUrl);
       setLastVideoBlob(blob);
       setLastVideoObject(video);
