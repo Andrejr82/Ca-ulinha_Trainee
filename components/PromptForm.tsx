@@ -129,7 +129,7 @@ const ImageUpload: React.FC<{
     return (
       <div className="relative w-28 h-20 group">
         <img
-          src={URL.createObjectURL(image.file)}
+          src={`data:${image.file.type};base64,${image.base64}`}
           alt="preview"
           className="w-full h-full object-cover rounded-lg"
         />
@@ -185,7 +185,7 @@ const VideoUpload: React.FC<{
     return (
       <div className="relative w-48 h-28 group">
         <video
-          src={URL.createObjectURL(video.file)}
+          src={`data:${video.file.type};base64,${video.base64}`}
           muted
           loop
           className="w-full h-full object-cover rounded-lg"
